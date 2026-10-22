@@ -1,0 +1,97 @@
+.inicio-root {
+    -fx-background-color: #ffffff;
+    -fx-padding: 35px;
+    -fx-border-color: #d9eee2;
+    -fx-border-width: 1px;
+}
+
+.titulo {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #176b42;
+}
+
+.subtitulo {
+    -fx-font-size: 15px;
+    -fx-text-fill: #64746b;
+}
+
+.documento-input {
+    -fx-pref-width: 250px;
+    -fx-pref-height: 40px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #26332b;
+    -fx-prompt-text-fill: #9aa9a0;
+    -fx-padding: 0 14px 0 14px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b9d8c5;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(23, 107, 66, 0.08), 8, 0.2, 0, 2);
+}
+
+.documento-input:focused {
+    -fx-border-color: #27945c;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(39, 148, 92, 0.25), 10, 0.25, 0, 2);
+}
+
+.boton-buscar {
+    -fx-pref-width: 160px;
+    -fx-pref-height: 42px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #238b55;
+    -fx-background-radius: 22px;
+    -fx-border-radius: 22px;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(35, 139, 85, 0.25), 8, 0.2, 0, 3);
+}
+
+.boton-buscar:hover {
+    -fx-background-color: #1b7547;
+    -fx-effect: dropshadow(gaussian, rgba(35, 139, 85, 0.4), 10, 0.25, 0, 3);
+}
+
+.boton-buscar:pressed {
+    -fx-background-color: #155c38;
+    -fx-translate-y: 1px;
+}
+
+.texto-nuevo-paciente {
+    -fx-padding: 20px 0 0 0;
+    -fx-font-size: 14px;
+    -fx-text-fill: #64746b;
+}
+
+.boton-nuevo-paciente {
+    -fx-pref-width: 160px;
+    -fx-pref-height: 42px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #238b55;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #238b55;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 22px;
+    -fx-background-radius: 22px;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-cursor: hand;
+}
+
+.boton-nuevo-paciente:hover {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #238b55;
+    -fx-effect: dropshadow(gaussian, rgba(35, 139, 85, 0.25), 8, 0.2, 0, 3);
+}
+
+.boton-nuevo-paciente:pressed {
+    -fx-background-color: #155c38;
+    -fx-border-color: #155c38;
+    -fx-translate-y: 1px;
+}
