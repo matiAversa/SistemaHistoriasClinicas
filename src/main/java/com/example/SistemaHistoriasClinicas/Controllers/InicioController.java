@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -61,14 +60,14 @@ public class InicioController {
         Paciente paciente = pacienteService.getByDocumento(dni);
 
         if (paciente == null) {
-            mostrarAlerta(Alert.AlertType.INFORMATION, "Paciente no encontrado", "No existe un paciente con el DNI " + dni + ".");
+            mostrarAlerta(
+                    Alert.AlertType.INFORMATION,
+                    "Paciente no encontrado",
+                    "No existe un paciente con el DNI " + dni + "."
+            );
             return;
         }
 
-        mostrarAlerta(
-                Alert.AlertType.INFORMATION, "Paciente encontrado", "Paciente: " + paciente.getNombre() + " " + paciente.getApellido());
-
-        // Si querés, también podés abrir la ventana con los datos encontrados:
         abrirInformacionDelPaciente(paciente);
     }
 
@@ -112,26 +111,37 @@ public class InicioController {
     }
     private void abrirInformacionDelPaciente(Paciente paciente) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/informacionDelPaciente.fxml"));
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/Vistas/InformacionPaciente.fxml")
+            );
 
             loader.setControllerFactory(applicationContext::getBean);
 
-            Parent root = loader.load();
+            Parent informacionPaciente = loader.load();
 
-            //InformacionDelPacienteController controller =loader.getController();
-            // Este metodo debo crearlo en este mismo controller, no crear otro
+            InformacionPacienteController controller = loader.getController();
+            controller.setPaciente(paciente);
 
-            //controller.setPaciente(paciente);
+            Stage ventanaActual = (Stage) documentoInput
+                    .getScene()
+                    .getWindow();
 
-            Stage nuevaVentana = new Stage();
-            nuevaVentana.setTitle(paciente == null ? "Nuevo paciente" : "Información del paciente");
-            nuevaVentana.setScene(new Scene(root));
-            nuevaVentana.initModality(Modality.APPLICATION_MODAL);
-            nuevaVentana.showAndWait();
+            ventanaActual.setScene(new Scene(informacionPaciente));
+            ventanaActual.setTitle("Información del paciente");
+            ventanaActual.setWidth(850);
+            ventanaActual.setHeight(800);
+            ventanaActual.setMinWidth(850);
+            ventanaActual.setMinHeight(800);
+            ventanaActual.centerOnScreen();
+            ventanaActual.show();
 
         } catch (IOException e) {
-            mostrarAlerta(Alert.AlertType.ERROR,"Error","No se pudo abrir la ventana del paciente.");
             e.printStackTrace();
+            mostrarAlerta(
+                    Alert.AlertType.ERROR,
+                    "Error",
+                    "No se pudo abrir la pantalla de información del paciente."
+            );
         }
     }
 

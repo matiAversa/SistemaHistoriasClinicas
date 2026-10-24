@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER"
+      spacing="20"
+      prefWidth="760"
+      prefHeight="720"
+      stylesheets="@../Styles/InformacionPacienteStyle.css"
+      styleClass="informacion-paciente-root"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.SistemaHistoriasClinicas.Controllers.InformacionPacienteController">
+
+    <padding>
+        <Insets top="35" right="45" bottom="35" left="45"/>
+    </padding>
+
+    <Label text="Información del paciente" styleClass="titulo"/>
+
+    <GridPane hgap="20" vgap="14" styleClass="datos">
+
+        <columnConstraints>
+            <ColumnConstraints minWidth="170" prefWidth="190"/>
+            <ColumnConstraints minWidth="280" prefWidth="420" hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Nombre:" styleClass="campo-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label fx:id="nombreValor" styleClass="campo-valor"
+               GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Apellido:" styleClass="campo-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Label fx:id="apellidoValor" styleClass="campo-valor"
+               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Teléfono:" styleClass="campo-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Label fx:id="telefonoValor" styleClass="campo-valor"
+               GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <Label text="Documento:" styleClass="campo-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <Label fx:id="documentoValor" styleClass="campo-valor"
+               GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+        <Label text="Número de afiliado:" styleClass="campo-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <Label fx:id="afiliadoValor" styleClass="campo-valor"
+               GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+        <Label text="Fecha de nacimiento:" styleClass="campo-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <Label fx:id="fechaNacimientoValor" styleClass="campo-valor"
+               GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+        <Label text="Medicación:" styleClass="campo-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <Label fx:id="medicacionValor" styleClass="campo-valor-largo"
+               GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+        <Label text="Actividad física:" styleClass="campo-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <Label fx:id="actividadFisicaValor" styleClass="campo-valor-largo"
+               GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    </GridPane>
+
+    <Button text="Volver al inicio"
+            onAction="#volverAlInicio"
+            styleClass="boton-volver"/>
+</VBox>

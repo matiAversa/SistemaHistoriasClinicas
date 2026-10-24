@@ -1,0 +1,77 @@
+.informacion-paciente-root {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d9eee2;
+    -fx-border-width: 1px;
+}
+
+.titulo {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #176b42;
+}
+
+.datos {
+    -fx-padding: 10px 0 10px 0;
+}
+
+.campo-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #35443b;
+}
+
+.campo-valor {
+    -fx-font-size: 14px;
+    -fx-text-fill: #26332b;
+    -fx-wrap-text: true;
+}
+
+.campo-valor-largo {
+    -fx-font-size: 14px;
+    -fx-text-fill: #26332b;
+    -fx-wrap-text: true;
+    -fx-pref-width: 420px;
+    -fx-padding: 10px;
+    -fx-background-color: #f0faf4;
+    -fx-border-color: #8dccaa;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 14px;
+    -fx-background-radius: 14px;
+}
+
+.boton-volver {
+    -fx-pref-width: 230px;
+    -fx-pref-height: 46px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #238b55;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #238b55;
+    -fx-border-width: 2px;
+    -fx-background-radius: 23px;
+    -fx-border-radius: 23px;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-cursor: hand;
+}
+
+.boton-volver:hover {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #238b55;
+    -fx-border-color: #238b55;
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(35, 139, 85, 0.25),
+            8,
+            0.2,
+            0,
+            3
+    );
+}
+
+.boton-volver:pressed {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #155c38;
+    -fx-border-color: #155c38;
+    -fx-translate-y: 1px;
+}
