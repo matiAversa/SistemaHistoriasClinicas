@@ -137,6 +137,15 @@ public class NuevoPacienteController {
             return;
         }
 
+        String documento = documentoInput.getText().trim();
+        if (pacienteService.existeDocumento(documento)) {
+            AlertClass.mostrarMensaje(
+                    "Documento existente",
+                    "Ya existe un paciente con el documento " + documento + "."
+            );
+            return;
+        }
+
         int dia = Integer.parseInt(diaInput.getText());
         int mes = Integer.parseInt(mesInput.getText());
         int ano = Integer.parseInt(anoInput.getText());
@@ -148,7 +157,7 @@ public class NuevoPacienteController {
                 nombreInput.getText().trim(),
                 apellidoInput.getText().trim(),
                 telefonoInput.getText().trim(),
-                documentoInput.getText().trim(),
+                documento,
                 numeroAfiliadoInput.getText().trim(),
                 fechaNacimiento,
                 medicacionInput.getText().trim(),

@@ -5,8 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Paciente {
@@ -27,6 +30,9 @@ public class Paciente {
     private String mes;
     private String dia;
     private String ano;
+
+    @OneToMany(mappedBy = "paciente")
+    private List<Consulta> consultas = new ArrayList<>();
 
     //private Integer idOS;
 
@@ -138,6 +144,14 @@ public class Paciente {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<Consulta> getConsultas() {
+        return consultas;
+    }
+
+    public void setConsultas(List<Consulta> consultas) {
+        this.consultas = consultas;
     }
 
 }

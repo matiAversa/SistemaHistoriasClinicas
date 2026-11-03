@@ -14,6 +14,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.List;
 
 @Component
 public class InicioController {
@@ -57,9 +58,9 @@ public class InicioController {
             return;
         }
 
-        Paciente paciente = pacienteService.getByDocumento(dni);
+        List<Paciente> pacientes = pacienteService.buscarPorDocumento(textoDni);
 
-        if (paciente == null) {
+        if (pacientes.isEmpty()) {
             mostrarAlerta(
                     Alert.AlertType.INFORMATION,
                     "Paciente no encontrado",
@@ -68,7 +69,16 @@ public class InicioController {
             return;
         }
 
-        abrirInformacionDelPaciente(paciente);
+        if (pacientes.size() > 1) {
+            mostrarAlerta(
+                    Alert.AlertType.WARNING,
+                    "Documento duplicado",
+                    "Hay " + pacientes.size() + " pacientes con el DNI " + dni + ". No se puede abrir una sola ficha."
+            );
+            return;
+        }
+
+        abrirInformacionDelPaciente(pacientes.get(0));
     }
 
     @FXML
@@ -128,10 +138,10 @@ public class InicioController {
 
             ventanaActual.setScene(new Scene(informacionPaciente));
             ventanaActual.setTitle("Información del paciente");
-            ventanaActual.setWidth(850);
-            ventanaActual.setHeight(800);
-            ventanaActual.setMinWidth(850);
-            ventanaActual.setMinHeight(800);
+            ventanaActual.setWidth(1220);
+            ventanaActual.setHeight(860);
+            ventanaActual.setMinWidth(1100);
+            ventanaActual.setMinHeight(820);
             ventanaActual.centerOnScreen();
             ventanaActual.show();
 
