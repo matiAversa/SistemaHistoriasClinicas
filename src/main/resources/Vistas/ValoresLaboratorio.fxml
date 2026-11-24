@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox alignment="TOP_CENTER"
+      spacing="40"
+      prefWidth="1100"
+      prefHeight="700"
+      stylesheets="@../Styles/ValoresLaboratorioStyle.css"
+      styleClass="valores-laboratorio-root"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.SistemaHistoriasClinicas.Controllers.ValoresLaboratorioController">
+
+    <padding>
+        <Insets top="35" right="40" bottom="35" left="40"/>
+    </padding>
+
+    <VBox alignment="TOP_CENTER" spacing="12">
+        <Label text="Valores agregados" styleClass="titulo-seccion"/>
+        <ListView fx:id="valoresLista" styleClass="valores-lista"/>
+    </VBox>
+
+    <VBox alignment="TOP_CENTER" spacing="20">
+        <Label text="Datos de laboratorio" styleClass="titulo"/>
+
+        <HBox alignment="CENTER" spacing="12">
+            <ComboBox fx:id="datosLaboratorioCombo"
+                      promptText="Seleccione un dato"
+                      styleClass="dato-combo"/>
+
+            <TextField fx:id="valorInput"
+                       promptText="Valor"
+                       disable="true"
+                       styleClass="valor-input"/>
+
+            <Button fx:id="confirmarButton"
+                    text="Confirmar"
+                    disable="true"
+                    onAction="#confirmarValor"
+                    styleClass="boton-confirmar"/>
+        </HBox>
+
+        <Button text="Volver a la consulta"
+                onAction="#volverANuevaConsulta"
+                styleClass="boton-volver"/>
+    </VBox>
+</HBox>

@@ -12,6 +12,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +25,7 @@ import java.time.format.DateTimeParseException;
 @Component
 public class NuevoPacienteController {
 
+    private static final Logger log = LoggerFactory.getLogger(NuevoPacienteController.class);
     private static final int MAXIMO_CARACTERES_TEXTO = 9999;
 
     private final PacienteService pacienteService;
@@ -256,7 +259,7 @@ public class NuevoPacienteController {
             ventanaActual.centerOnScreen();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("No se pudo volver al inicio", e);
         }
     }
 }

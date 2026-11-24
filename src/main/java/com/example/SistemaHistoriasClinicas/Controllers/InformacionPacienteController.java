@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +24,7 @@ import java.util.List;
 @Component
 public class InformacionPacienteController {
 
+    private static final Logger log = LoggerFactory.getLogger(InformacionPacienteController.class);
     private static final DateTimeFormatter FECHA_CONSULTA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private final ApplicationContext applicationContext;
@@ -133,14 +136,14 @@ public class InformacionPacienteController {
             ventanaActual.setScene(new Scene(informacionConsulta));
             ventanaActual.setTitle("Información de la consulta");
             ventanaActual.setWidth(850);
-            ventanaActual.setHeight(700);
+            ventanaActual.setHeight(900);
             ventanaActual.setMinWidth(850);
-            ventanaActual.setMinHeight(700);
+            ventanaActual.setMinHeight(860);
             ventanaActual.centerOnScreen();
             ventanaActual.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("No se pudo abrir la información de la consulta", e);
         }
     }
 
@@ -165,14 +168,14 @@ public class InformacionPacienteController {
             ventanaActual.setScene(new Scene(nuevaConsulta));
             ventanaActual.setTitle("Nueva consulta");
             ventanaActual.setWidth(850);
-            ventanaActual.setHeight(700);
+            ventanaActual.setHeight(900);
             ventanaActual.setMinWidth(850);
-            ventanaActual.setMinHeight(700);
+            ventanaActual.setMinHeight(860);
             ventanaActual.centerOnScreen();
             ventanaActual.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("No se pudo abrir la pantalla de nueva consulta", e);
         }
     }
 
@@ -196,7 +199,7 @@ public class InformacionPacienteController {
             ventanaActual.centerOnScreen();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("No se pudo volver al inicio", e);
         }
     }
 

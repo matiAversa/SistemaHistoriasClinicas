@@ -11,7 +11,7 @@
 <VBox alignment="TOP_CENTER"
       spacing="20"
       prefWidth="760"
-      prefHeight="700"
+      prefHeight="860"
       stylesheets="@../Styles/NuevaConsultaStyle.css"
       styleClass="nueva-consulta-root"
       xmlns="http://javafx.com/javafx/21"
@@ -54,6 +54,10 @@
                   GridPane.rowIndex="1"/>
     </GridPane>
 
+    <Button text="Datos de laboratorio"
+            onAction="#abrirValoresLaboratorio"
+            styleClass="boton-editar"/>
+
     <Button text="Editar medicación y actividad física"
             onAction="#editarInformacionPaciente"
             styleClass="boton-editar"/>
@@ -61,4 +65,8 @@
     <Button text="Aceptar"
             onAction="#aceptarConsulta"
             styleClass="boton-aceptar"/>
+
+    <Button text="Volver"
+            onAction="#volverAInformacionPaciente"
+            styleClass="boton-volver"/>
 </VBox>

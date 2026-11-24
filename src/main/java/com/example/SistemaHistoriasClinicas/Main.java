@@ -6,11 +6,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
 public class Main extends Application {
+
+    private static final Logger log = LoggerFactory.getLogger(Main.class);
 
     private ConfigurableApplicationContext springContext;
 
@@ -48,6 +52,9 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        Thread.setDefaultUncaughtExceptionHandler((hilo, error) ->
+                log.error("Error no controlado en el hilo {}", hilo.getName(), error)
+        );
         launch(args);
     }
 }

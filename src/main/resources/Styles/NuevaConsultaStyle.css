@@ -136,3 +136,40 @@
     -fx-border-color: #155c38;
     -fx-translate-y: 1px;
 }
+
+.boton-volver {
+    -fx-pref-width: 230px;
+    -fx-pref-height: 46px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #238b55;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #238b55;
+    -fx-border-width: 2px;
+    -fx-background-radius: 23px;
+    -fx-border-radius: 23px;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-cursor: hand;
+}
+
+.boton-volver:hover {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #238b55;
+    -fx-border-color: #238b55;
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(35, 139, 85, 0.25),
+            8,
+            0.2,
+            0,
+            3
+    );
+}
+
+.boton-volver:pressed {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #155c38;
+    -fx-border-color: #155c38;
+    -fx-translate-y: 1px;
+}

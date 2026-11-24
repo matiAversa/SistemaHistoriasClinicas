@@ -10,6 +10,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +20,8 @@ import java.util.List;
 
 @Component
 public class InicioController {
+
+    private static final Logger log = LoggerFactory.getLogger(InicioController.class);
 
     private final PacienteService pacienteService;
     private final ApplicationContext applicationContext;
@@ -110,7 +114,7 @@ public class InicioController {
             ventanaActual.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("No se pudo abrir la pantalla de nuevo paciente", e);
 
             mostrarAlerta(
                     Alert.AlertType.ERROR,
@@ -146,7 +150,7 @@ public class InicioController {
             ventanaActual.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("No se pudo abrir la pantalla de información del paciente", e);
             mostrarAlerta(
                     Alert.AlertType.ERROR,
                     "Error",
